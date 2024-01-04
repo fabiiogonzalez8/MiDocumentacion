@@ -1,0 +1,830 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Mi blog para documentación">
+      
+      
+        <meta name="author" content="Fabio Gonzalez">
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../about/">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Práctica OpenStack - Supergallo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="lime">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-openstack" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Supergallo" class="md-header__button md-logo" aria-label="Supergallo" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Supergallo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Práctica OpenStack
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="lime"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Bienvenido a mi sitio web
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Práctica OpenStack
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../about/" class="md-tabs__link">
+        
+  
+    
+  
+  Sobre mí
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Supergallo" class="md-nav__button md-logo" aria-label="Supergallo" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Supergallo
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido a mi sitio web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Práctica OpenStack
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Práctica OpenStack
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#escenario" class="md-nav__link">
+    Escenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-las-maquinas-en-openstack" class="md-nav__link">
+    Creación de las máquinas en OpenStack
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de las máquinas en OpenStack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crea-un-nuevo-router-llamado-routerpractica-conectado-a-la-red-externa" class="md-nav__link">
+    1. Crea un nuevo router llamado RouterPractica conectado a la red externa.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crea-una-red-interna-que-se-llame-red-intra-de-tu_usuario-con-las-siguientes-caracteristicas" class="md-nav__link">
+    2. Crea una red interna que se llame Red Intra de tu_usuario, con las siguientes características:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-crea-una-red-interna-que-se-llame-red-dmz-de-tu_usuario-con-las-siguientes-caracteristicas" class="md-nav__link">
+    3. Crea una red interna que se llame Red DMZ de tu_usuario, con las siguientes características:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-las-dos-instancias-que-vamos-a-crear-se-van-a-configurar-con-cloud-init-de-la-siguiente-manera" class="md-nav__link">
+    4. Las dos instancias que vamos a crear se van a configurar con cloud-init de la siguiente manera:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-creacion-de-la-maquina1-odin" class="md-nav__link">
+    5. Creación de la máquina1 (odin):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-configuracion-de-la-maquina1-odin" class="md-nav__link">
+    6. Configuración de la máquina1 (odin):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-creacion-de-la-maquina2-hela" class="md-nav__link">
+    7. Creación de la máquina2 (hela):
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-los-contenedores" class="md-nav__link">
+    Instalación de los contenedores
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre mí
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#escenario" class="md-nav__link">
+    Escenario
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-de-las-maquinas-en-openstack" class="md-nav__link">
+    Creación de las máquinas en OpenStack
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de las máquinas en OpenStack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crea-un-nuevo-router-llamado-routerpractica-conectado-a-la-red-externa" class="md-nav__link">
+    1. Crea un nuevo router llamado RouterPractica conectado a la red externa.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crea-una-red-interna-que-se-llame-red-intra-de-tu_usuario-con-las-siguientes-caracteristicas" class="md-nav__link">
+    2. Crea una red interna que se llame Red Intra de tu_usuario, con las siguientes características:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-crea-una-red-interna-que-se-llame-red-dmz-de-tu_usuario-con-las-siguientes-caracteristicas" class="md-nav__link">
+    3. Crea una red interna que se llame Red DMZ de tu_usuario, con las siguientes características:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-las-dos-instancias-que-vamos-a-crear-se-van-a-configurar-con-cloud-init-de-la-siguiente-manera" class="md-nav__link">
+    4. Las dos instancias que vamos a crear se van a configurar con cloud-init de la siguiente manera:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-creacion-de-la-maquina1-odin" class="md-nav__link">
+    5. Creación de la máquina1 (odin):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-configuracion-de-la-maquina1-odin" class="md-nav__link">
+    6. Configuración de la máquina1 (odin):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-creacion-de-la-maquina2-hela" class="md-nav__link">
+    7. Creación de la máquina2 (hela):
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacion-de-los-contenedores" class="md-nav__link">
+    Instalación de los contenedores
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="practica-openstack">Práctica OpenStack</h1>
+<p>En esta ocasión vamos a ver como configurar un escenario de OpenStack el cual vamos a usar durante todo el curso. Este escenario está compuesto de 4 máquinas: 2 instancias en OpenStack y dos contenedores LXC que se ejecutará en una de las instancias.</p>
+<p>El dominio será un subdominio de <code>fabio.gonzalonazareno.org</code>. Finalmente tendremos:</p>
+<ul>
+<li>Máquina 1: Instancia en OpenStack con <strong>Debian 12 Bookworm</strong> que se llama <code>odin.fabio.gonzalonazareno.org</code>.</li>
+<li>Máquina 2: Instancia en OpenStack con <strong>Rocky Linux 9</strong> que se llama <code>hela.fabio.gonzalonazareno.org</code>.</li>
+<li>Máquina 3: Contenedor LXC con <strong>Ubuntu 22.04</strong> que se llama <code>thor.fabio.gonzalonazareno.org</code>.</li>
+<li>Máquina 4: Contenedor LXC con <strong>Ubuntu 22.04</strong> que se llama <code>loki.fabio.gonzalonazareno.org</code>.</li>
+</ul>
+<h2 id="escenario">Escenario</h2>
+<p><img alt="Escenario" src="../capturas/escenario.png" /></p>
+<h2 id="creacion-de-las-maquinas-en-openstack">Creación de las máquinas en OpenStack</h2>
+<h3 id="1-crea-un-nuevo-router-llamado-routerpractica-conectado-a-la-red-externa">1. Crea un nuevo router llamado <strong>RouterPractica</strong> conectado a la red externa.</h3>
+<pre><code class="language-bash">openstack router create routerpractica
+</code></pre>
+<pre><code class="language-bash">openstack router set routerpractica --external-gateway ext-net
+</code></pre>
+<h3 id="2-crea-una-red-interna-que-se-llame-red-intra-de-tu_usuario-con-las-siguientes-caracteristicas">2. Crea una red interna que se llame <strong>Red Intra de tu_usuario</strong>, con las siguientes características:</h3>
+<ul>
+<li>Está conectada al router que has creado en el punto anterior.</li>
+<li>Direccionamiento: 10.0.200.0/24</li>
+<li>Con DHCP y DNS (<code>172.22.0.1</code>).</li>
+<li>La puerta de enlace de los dispositivos conectados a esta red será el <code>10.0.200.1</code>.</li>
+</ul>
+<pre><code class="language-bash">openstack network create &quot;Red intra de fabio.gonzalez&quot;
+</code></pre>
+<pre><code class="language-bash">openstack subnet create --network &quot;Red intra de fabio.gonzalez&quot; --subnet-range 10.0.200.0/24 --dns-nameserver 172.22.0.1 --dhcp 172.22.0.1
+</code></pre>
+<p>Para especificar mi subred he usado el ID, ya que esta no tiene nombre</p>
+<pre><code class="language-bash">openstack router add subnet routerpractica ac1ee726-ddfd-464d-a7b4-e24a69149042
+</code></pre>
+<h3 id="3-crea-una-red-interna-que-se-llame-red-dmz-de-tu_usuario-con-las-siguientes-caracteristicas">3. Crea una red interna que se llame <strong>Red DMZ de tu_usuario</strong>, con las siguientes características:</h3>
+<ul>
+<li>Direccionamiento: 172.16.0.0/16</li>
+<li>Con DHCP y DNS (<code>172.22.0.1</code>).</li>
+<li>La puerta de enlace de los dispositivos conectados a esta red será el <code>172.16.0.1</code>.</li>
+</ul>
+<pre><code class="language-bash">openstack network create &quot;Red DMZ de fabio.gonzalez&quot;
+</code></pre>
+<pre><code class="language-bash">openstack subnet create --network &quot;Red DMZ de fabio.gonzalez&quot; --subnet-range 172.16.0.0/16 --dns-nameserver 172.22.0.1 --dhcp 172.22.0.1
+</code></pre>
+<h3 id="4-las-dos-instancias-que-vamos-a-crear-se-van-a-configurar-con-cloud-init-de-la-siguiente-manera">4. Las dos instancias que vamos a crear se van a configurar con <code>cloud-init</code> de la siguiente manera:</h3>
+<ul>
+<li>Deben actualizar los paquetes de la distribución de la instancia.</li>
+<li>El dominio utilizado será del tipo <code>tunombre.gonzalonazareno.org</code>. Por lo tanto en la configuración con <code>cloud-init</code> habrá que indicar el hostname y el FQDN.</li>
+<li>Se crearán dos usuarios:</li>
+<li>Un usuario sin privilegios. Se puede llamar como quieras
+(pero el nombre será el mismo en todas las máquinas) y accederás a las
+máquinas usando tu clave ssh privada.</li>
+<li>Un usuario <code>profesor</code>, que puede utilizar <code>sudo</code> sin contraseña. Copia de las claves públicas de todos los profesores en las instancias para que puedan acceder con el usuario <code>profesor</code>.</li>
+<li>Cambia la contraseña al usuario <code>root</code>.</li>
+</ul>
+<h3 id="5-creacion-de-la-maquina1-odin">5. Creación de la <strong>máquina1 (odin)</strong>:</h3>
+<ul>
+<li>Crea una instancia sobre un volumen de 15Gb, usando una imagen de <strong>Debian 12 Bookworm</strong>. Elige el sabor <code>vol.medium</code>. Y configuralá con <code>cloud-init</code> como se ha indicado anteriormente.</li>
+</ul>
+<pre><code class="language-bash">openstack volume create --bootable --size 15 --image &quot;Debian 12 Bookworm&quot; odin
+</code></pre>
+<pre><code class="language-bash">openstack server create --flavor vol.medium \
+--volume odin \
+--security-group default \
+--key-name &quot;Fabio Gonzalez del Valle&quot; \
+--network &quot;Red intra de fabio.gonzalez&quot; \
+--user-data cloud-config.yaml \
+odin
+</code></pre>
+<ul>
+<li>Está instancia estará conectada a la red <strong>Red Intra de tu_usuario</strong>. Asigna a la instancia una IP flotante.</li>
+</ul>
+<pre><code class="language-bash">openstack floating ip create ext-net
+</code></pre>
+<pre><code class="language-bash">openstack server add floating ip odin 172.22.201.66
+</code></pre>
+<h3 id="6-configuracion-de-la-maquina1-odin">6. Configuración de la <strong>máquina1 (odin)</strong>:</h3>
+<ul>
+<li>Conecta la instancia a tu <strong>Red DMZ</strong>, asígnale la dirección <code>172.16.0.1</code> para que sea la puerta de enlace las máquinas conectadas a esta red (recuerda que deberás configurar la red de la instancia para que tome dicha configuración).</li>
+</ul>
+<pre><code class="language-bash">openstack server add network odin &quot;Red DMZ de fabio.gonzalez&quot;
+</code></pre>
+<pre><code class="language-bash">openstack port create --network &quot;Red DMZ de fabio.gonzalez&quot; --fixed-ip ip-address=172.16.0.1 puerto-odin
+</code></pre>
+<pre><code class="language-bash">openstack server add port odin puerto-odin
+</code></pre>
+<ul>
+<li>Deshabilita la seguridad de los puertos en las dos interfaces de red para que funcione de manera adecuada el NAT.</li>
+</ul>
+<pre><code class="language-bash">openstack server remove security group odin default
+</code></pre>
+<pre><code class="language-bash">openstack port set --disable-port-security puerto-odin
+</code></pre>
+<pre><code class="language-bash">openstack port set --disable-port-security f01ff47d-90d0-49eb-9581-535ae67f69be
+</code></pre>
+<ul>
+<li>Configura de forma permanente la regla SNAT para que las máquinas de la <strong>Red DMZ</strong> tengan acceso a internet.</li>
+</ul>
+<pre><code class="language-bash">sudo iptables -t nat -A POSTROUTING -s 172.16.0.0/16 -o ens3 -j MASQUERADE
+</code></pre>
+<p>Para hacer las reglas permanentes podemos meterlas en el fichero <strong>interfaces</strong>, pero en este caso no contamos con el, así que lo que haremos será descargar el paquete <code>iptables-persistent</code>. Si hemos creado la regla antes de la instalación del paquete, esta regla será guardada automáticamente.</p>
+<h3 id="7-creacion-de-la-maquina2-hela">7. Creación de la <strong>máquina2 (hela)</strong>:</h3>
+<ul>
+<li>Está instancia se conectará a la <strong>Red DMZ</strong>. Usando un puerto asigna a esta máquina la dirección <code>172.16.0.200</code>.</li>
+</ul>
+<pre><code class="language-bash"> openstack port create --network &quot;Red DMZ de fabio.gonzalez&quot; --fixed-ip ip-address=172.16.0.200 hela
+</code></pre>
+<ul>
+<li>Crea una instancia sobre un volumen de 15Gb, usando una imagen de <strong>Rocky Linux 9</strong>. Elige el sabor <code>vol.normal</code>. Y configúrala con <code>cloud-init</code> como se ha indicado anteriormente.</li>
+</ul>
+<pre><code class="language-bash"> openstack volume create --bootable --size 15 --image &quot;Rocky Linux 9&quot; hela
+</code></pre>
+<pre><code class="language-bash">openstack server create --flavor vol.normal \
+--volume hela \
+--security-group default \
+--key-name &quot;Fabio Gonzalez del Valle&quot; \
+--network &quot;Red DMZ de fabio.gonzalez&quot; \
+--port hela \
+--user-data cloud-config-hela.yaml \
+hela
+</code></pre>
+<ul>
+<li>Deshabilita la seguridad de los puertos en la interfaz de red para que funcione de manera adecuada el NAT.</li>
+</ul>
+<pre><code class="language-bash">openstack server remove security group hela default
+</code></pre>
+<pre><code class="language-bash">openstack port set --disable-port-security hela
+</code></pre>
+<ul>
+<li>Comprueba que tiene acceso a internet. <strong>Si no tiene acceso a internet, no se han actualizado los paquetes con cloud-init, hazlo posteriormente.</strong>.</li>
+</ul>
+<p>En este punto de la práctica, mi topología de red se encuentra de la siguiente manera:</p>
+<p><img alt="topologia" src="../capturas/topologia.png" /></p>
+<h2 id="instalacion-de-los-contenedores">Instalación de los contenedores</h2>
+<p>En <strong>maquina1</strong> vamos a crear dos contenedores en un red interna, para ello:</p>
+<ol>
+<li>Crea en <strong>máquina1 (odin)</strong> un linux bridge llamado <code>br-intra</code> (no lo hagas con <code>virsh</code> ya que se configura una reglas de cortafuego muy estrictas) y asigna una dirección IP estática <code>192.168.0.1</code>. Esta será la IP de <strong>máquina1 (odin)</strong> conectada a este switch virtual y será la puerta de enlace de los
+contenedores. Tienes que tener en cuenta que la imagen de Debian 12
+Bookworm de OpenStack tiene <strong>netplan</strong> para la
+configuración de las redes, por lo tanto tienes que configurar el bridge usando el fichero de configuración de netplan, para ello te puede ser
+útil esta <a href="https://fabianlee.org/2022/09/20/kvm-creating-a-bridged-network-with-netplan-on-ubuntu-22-04/">página</a>. No olvides poner la mtu a 1450 al crear el bridge.</li>
+<li>Instala LXC y crea dos contenedores con la distribución <strong>Ubuntu 22.04</strong>. Estos contenedores serán la <strong>máquina3 (thor)</strong> y la <strong>máquina4 (loki)</strong>.</li>
+<li>Configura de forma permanente la regla SNAT para que los contenedores tengan acceso a internet.</li>
+<li>Conecta los contenedores al bridge <code>br-intra</code> y configúralo de forma estática con las siguientes direcciones: <strong>máquina3 (thor)</strong> la <code>192.168.0.2</code> y <strong>máquina4 (loki)</strong> la <code>192.168.0.3</code>. Su DNS será el <code>172.22.0.1</code>.</li>
+<li>Para que la red de OpenStack funcione de forma adecuada las imágenes que usamos tienen configurado la mtu (<em>Unidad máxima de transferencia</em>) a 1450 bytes. Tenemos que adecuar los contenedores a este tamaño de
+trama. Para ello introduce en la configuración de los contenedores la
+línea: <code>lxc.net.0.mtu = 1450</code>.</li>
+<li>Configura los contenedores para que se auto inicien al reiniciar la instancia.</li>
+<li>Los contenedores tendrán características parecidas a las instancias anteriormente:<ul>
+<li>Debes actualizar los paquetes de la distribución instalada.</li>
+<li>El dominio utilizado será del tipo <code>tunombre.gonzalonazareno.org</code>. Por lo tanto configura de manera adecuada el hostname y el FQDN.</li>
+<li>Para acceder a los contenedores vamos a usar ssh.</li>
+<li>Crea dos usuarios:<ul>
+<li>Un usuario sin privilegios. Se puede llamar como quieras
+(el nombre de usuario que usaste en las instancias) y accederás a los
+contenedores usando tu clave ssh privada.</li>
+<li>Un usuario <code>profesor</code>, que puede utilizar <code>sudo</code> sin contraseña. Copia de las claves públicas de todos los profesores en los contenedores para que puedan acceder con el usuario <code>profesor</code>.</li>
+</ul>
+</li>
+<li>Cambia la contraseña al usuario <code>root</code>.</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Anterior: Bienvenido a mi sitio web">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Bienvenido a mi sitio web
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../about/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Sobre mí">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Sobre mí
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.instant", "navigation.indexes", "header.autohide", "content.code.copy", "navigation.footer"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,42 @@
+site_name: Supergallo
+site_author: Fabio Gonzalez
+site_description: >-
+  Mi blog para documentación
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.indexes
+    - header.autohide
+    - content.code.copy
+
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: deep orange
+      accent: lime
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: deep orange
+      accent: lime
+plugins:
+  - search
+copyright: Fabio Gonzalez del Valle - 2024
+extra: 
+  social: 
+    - icon: fontawesome/brands/github
+      link: https://github.com/fabiiogonzalez8
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<fabiiogonzalez8@gmail.com>
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/fabio-gonzalez-del-valle-a7b5161b8/
